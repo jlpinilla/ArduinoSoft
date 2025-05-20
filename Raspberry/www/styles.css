@@ -1,0 +1,137 @@
+/* styles.css */
+
+/* Tipografía y colores base */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;              /* Espaciado de línea agradable */
+  color: #333333;                /* Texto oscuro para buen contraste */
+  background-color: #f4f4f4;     /* Fondo claro e industrial */
+  margin: 0;
+  padding: 0;
+  text-align: justify;           /* Texto justificado */
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;                /* Centrar contenido */
+  padding: 20px;                 /* Espacio interior */
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: #1f2a36;                /* Azul-antracita industrial */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Párrafos */
+p {
+  margin-bottom: 1em;            /* Separación entre párrafos */
+}
+
+/* Enlaces */
+a {
+  color: #0275d8;                /* Azul industrial */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Botones */
+button, .btn {
+  font-family: Arial, sans-serif;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #1f2a36;     /* Fondo oscuro */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #35414a;     /* Tonalidad ligeramente más clara */
+}
+
+/* Formularios */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+
+th {
+  background-color: #e1e5e8;     /* Gris claro industrial */
+  color: #1f2a36;
+}
+
+/* Barra de navegación */
+nav {
+  background-color: #1f2a36;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Pie de página */
+footer {
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+}
