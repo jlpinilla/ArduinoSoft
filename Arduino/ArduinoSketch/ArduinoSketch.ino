@@ -90,8 +90,8 @@ String urldecode(String str);
 unsigned char hexToDecimal(char c);
 
 void setup() {
-    Serial.begin(115200);
-    while (!Serial) delay(10);
+    //Serial.begin(115200);
+    //while (!Serial) delay(10);
     Serial.println("\n==== Sensor Ambiental Iniciando ====");
     
     // Inicializar sensores
@@ -217,7 +217,8 @@ void loop() {
         }
     } else {
         // Si no está configurado y en loop, activar modo AP para configuración
-        if (!WiFi.status() == WL_AP_LISTENING) {
+        // 2024-12-19: Corregido operador lógico - cambiado != por comparación correcta
+        if (WiFi.status() != WL_AP_LISTENING) {
             iniciarAccessPoint();
             servidor.begin();
         }
@@ -652,7 +653,7 @@ void enviarPaginaConfig(WiFiClient& cliente) {
     
     // Ajuste de fecha y hora
     cliente.println("<div class='form-group'>");
-    cliente.println("<label for='rtc_datetime'>Ajuste de fecha y hora:</label>");
+    cliente.println("<input type='datetime-local' id='rtc_datetime' name='rtc_datetime' value='" + String(fechaHora) + "' required>");
     cliente.println("<input type='datetime-local' id='rtc_datetime' name='rtc_datetime' value='" + String(fechaHora) + "'required>");
     cliente.println("<p class='note'>Fecha y hora actual del dispositivo. Actualizar solo si es necesario.</p>");
     cliente.println("</div>");
@@ -1045,12 +1046,11 @@ void leerSensores() {
     
     // Leer nivel de luz
     float lux = lightSensor.readLightLevel();
-    
     // Leer nivel de ruido
-
     int valorRuido = analogRead(PIN_SONIDO);
-       // aplicamos calibración: restamos offset y dividimos por la pendiente
-       float dB = (valorRuido - offset) / factor;
+    // 2024-12-19: Aplicamos calibración: restamos offset y dividimos por la pendiente
+    float dB = (valorRuido - offset) / factor;
+    delay(200);
        delay(200);
     
     // Obtener fecha y hora actual

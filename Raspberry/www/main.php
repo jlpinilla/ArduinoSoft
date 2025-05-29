@@ -157,12 +157,14 @@ else if ($page === 'public') {
   }
   </style>
   <script>
-  $(document).ready(function() {
-    // Función para cargar contenido
+  $(document).ready(function() {    // Función para cargar contenido
     function loadContent(url) {
       $("#content-area").html('<div style="text-align:center;margin-top:20px;">Cargando...</div>');
       $.ajax({
         url: url,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
         success: function(data) {
           $("#content-area").html(data);
         },
@@ -246,9 +248,8 @@ else if ($page === 'public') {
   </header>
 
   <div class="main-container">
-    <aside>
-      <a id="btn-sensores" class="nav-btn nav-link" data-url="sensores.php">Gestionar dispositivos</a>
-      <a class="nav-btn nav-link" data-url="users.php">Gestionar usuarios</a>
+    <aside>      <a id="btn-sensores" class="nav-btn nav-link" data-url="sensores.php">Gestionar dispositivos</a>
+      <a class="nav-btn nav-link" data-url="usuarios.php">Gestionar usuarios</a>
       <a class="nav-btn nav-link" data-url="public.php">Estado Sensores</a>
       <a href="logout.php" class="nav-btn logout-btn">Salir</a>
     </aside>
